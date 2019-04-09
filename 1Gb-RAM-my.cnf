@@ -1,0 +1,43 @@
+[client]
+port                        = 3306
+socket                      = /var/run/mysqld/mysqld.sock
+
+[mysqld_safe]
+socket                      = /var/run/mysqld/mysqld.sock
+nice                        = 0
+
+[mysqld]
+user                        = mysql
+pid-file                    = /var/run/mysqld/mysqld.pid
+socket                      = /var/run/mysqld/mysqld.sock
+port                        = 3306
+basedir                     = /usr
+datadir                     = /var/lib/mysql
+tmpdir                      = /tmp
+language                    = /usr/share/mysql/english
+old_passwords               = 0
+bind-address                = 127.0.0.1
+
+skip-external-locking
+
+max_allowed_packet          = 16M
+key_buffer_size             = 16M
+innodb_buffer_pool_size     = 512M
+innodb_file_per_table       = 1
+innodb_flush_method         = O_DIRECT
+innodb_flush_log_at_trx_commit  = 0
+
+max_connections             = 132
+
+		query_cache_size            = 0
+
+slow_query_log              = /var/log/mysql/mysql-slow.log
+long_query_time             = 1
+
+expire_logs_days            = 10
+max_binlog_size             = 100M
+
+[mysqldump]
+quick
+quote-names
+max_allowed_packet          = 16M
